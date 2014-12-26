@@ -8,5 +8,8 @@
     "60": "/icons/icon60x60.png",
     "128": "/icons/icon128x128.png"
   },
-  "permissions": {}
+  "type": "privileged",
+  "permissions": {
+    "device-storage:sdcard":{ "access": "readwrite" }
+  }
 }
