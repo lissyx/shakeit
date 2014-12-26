@@ -32,6 +32,7 @@ ActionLogShakeOriginal.prototype = {
     var excitement = acc.x * acc.x + acc.y * acc.y + acc.z * acc.z;
     if (excitement > kExcitementThreshold) {
       self.feedback.textContent = "Above threshold: " + excitement;
+      navigator.vibrate([100, 15, 100]);
     }
   },
 
