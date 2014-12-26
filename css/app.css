@@ -7,3 +7,19 @@
 #action-details[data-visible="true"] {
   visibility: visible;
 }
+
+#action-controls[data-visible="false"] {
+  visibility: hidden;
+}
+
+#action-controls[data-visible="true"] {
+  visibility: visible;
+}
+
+#action-feedback[data-visible="false"] {
+  visibility: hidden;
+}
+
+#action-feedback[data-visible="true"] {
+  visibility: visible;
+}
