@@ -57,6 +57,7 @@
     showDetails: function() {
       this.toggleDetails(true);
       this.toggleControls(true);
+      this.toggleFeedback(true);
     },
 
     hideDetails: function() {
