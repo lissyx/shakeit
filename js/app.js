@@ -15,6 +15,7 @@
     this.bind();
 
     this.actionStarted = false;
+    this.currentCallee = null;
   }
 
   ShakeItManager.prototype = {
@@ -56,7 +57,6 @@
     showDetails: function() {
       this.toggleDetails(true);
       this.toggleControls(true);
-      this.toggleFeedback(true);
     },
 
     hideDetails: function() {
@@ -81,13 +81,15 @@
       this.showDetails();
     },
     
-    addAction: function(id, name, title, desc, handler) {
+    addAction: function(id, name, title, desc, handler, start, stop) {
       if (!(id in this.actions)) {
         this.actions[id] = {
           handler: handler,
           name: name,
           title: title,
-          description: desc
+          description: desc,
+          start: start,
+          stop: stop
         };
         this.updateUI(id, name);
       }
@@ -114,12 +116,14 @@
       console.debug('Start');
       this.actionStarted = true;
       this.updateStartStop();
+      this.currentCallee.start(evt);
     },
 
     handleStop: function(evt) {
       console.debug('Stop');
       this.actionStarted = false;
       this.updateStartStop();
+      this.currentCallee.stop(evt);
     },
 
     handleClick: function(evt) {
@@ -140,6 +144,8 @@
       this.setDetails(callee.title, callee.description);
 
       callee.handler(evt);
+
+      this.currentCallee = callee;
     },
 
     updateUI: function(id, name) {
