@@ -1,0 +1,9 @@
+/* vim: set shiftwidth=2 tabstop=2 autoindent cindent expandtab: */
+
+#action-details[data-visible="false"] {
+  visibility: hidden;
+}
+
+#action-details[data-visible="true"] {
+  visibility: visible;
+}
